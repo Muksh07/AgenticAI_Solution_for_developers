@@ -1,0 +1,1117 @@
+<!-- <div class="container" *ngIf="routes.url !== '/login' && routes.url !== '/sign-up'"></div> -->
+<!-- Disclaimer Popup -->
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+  <p>Uploading, please wait...</p>
+</div>
+
+
+
+
+<!-- <div class="modal-overlay" *ngIf="showDisclaimer">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close-btn" (click)="closeDisclaimer()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <div *ngIf="isLoadingDisclaimer" class="loading-content">
+        <p>Loading disclaimer...</p>
+      </div>
+      
+      <div *ngIf="!isLoadingDisclaimer" 
+           class="disclaimer-content" 
+           [innerHTML]="disclaimerContent">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- <app-feedback-form
+  [isVisible]="showFeedbackForm"
+  [projectId]="projectLifecycleData.projectID || 0"
+  [projectName]="projectLifecycleData.projectName || 'Untitled Project'"
+  (closeForm)="closeFeedbackForm()"
+  (feedbackSubmitted)="onFeedbackSubmitted($event)">
+</app-feedback-form> -->
+
+
+ <div class="project-selection-overlay" *ngIf="showProjectSelection">
+  <div class="project-selection-container">
+    <div class="selection-header">
+      <h1>Dev CoPilot</h1>
+      <p>Strengthening software development by reducing cycle time across new and existing solutions</p>
+      
+      <p>Choose your project type to get started</p>
+    </div>
+    
+    <div class="project-type-cards">
+      <div class="project-type-card" (click)="selectGreenfield()">
+        <div class="card-icon">🌱</div>
+        <h3>Greenfield Project</h3>
+        <p>Accelerating new solution delivery</p>
+        <ul>
+          <li>Upload business and technical requirements</li>
+          <li>Analyze and confirm requirements</li>
+          <li>Plan & design solution</li>
+          <li>Select & generate artifacts metadata</li>
+          <li>Auto synthesis artifacts</li>
+          <ul>
+            <li>Functional code</li>
+            <li>Test case & scripts</li>
+            <li>Documentations</li>
+            <li>Code review</li>
+          </ul>
+        </ul>
+        <div class="card-footer">
+          <span class="start-btn">Start Greenfield →</span>
+        </div>
+      </div>
+
+      <div class="project-type-card" (click)="selectBrownfield()">
+        <div class="card-icon">🏗️</div>
+        <h3>Brownfield Project</h3>
+        <p>Revitalizing existing solutions</p>
+        <ul>
+          <li>Upload existing solution structure</li>
+          <li>Analyze and reverse engineer</li>
+          <li>Generate requirements & design solution</li>
+          <li>Select & generate artifacts metadata</li>
+          <li>Auto synthesis artifacts</li>
+          <ul>
+            <li>Test case & scripts</li>
+            <li>Documentations</li>
+            <li style="margin-bottom: 48px;">Code review</li>
+          </ul>
+        </ul>
+        <div class="card-footer">
+          <span class="start-btn">Start Brownfield →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- Your Main Application (only show after project type is selected) -->
+<!-- <div class="container" *ngIf="!showProjectSelection"> -->
+  
+  <!-- Add Back Button -->
+
+  <!-- Confirmation Dialog Overlay -->
+<div class="confirmation-overlay" *ngIf="showConfirmationDialog">
+  <div class="confirmation-dialog">
+    <div class="confirmation-header">
+      <h3>⚠️ Change Project Type</h3>
+    </div>
+    
+    <div class="confirmation-body">
+      <p>Are you sure you want to change the project type?</p>
+      <p class="warning-text">
+        <strong>Warning:</strong> All current progress and data in this session will be lost. 
+        This includes any requirements, solutions, and configurations you've entered.
+      </p>
+    </div>
+    
+    <div class="confirmation-footer">
+      <button class="cancel-btn" (click)="cancelGoBack()">No, Keep Current</button>
+      <button class="confirm-btn" (click)="confirmGoBack()">Yes, Change Project</button>
+    </div>
+  </div>
+</div>
+<!-- Animated transition overlay -->
+<div *ngIf="enteringProject" class="project-loader-overlay">
+  <div class="project-loader-content">
+    <div *ngIf="selectedType === 'greenfield'">
+      <div class="loader-icon greenfield">🌱</div>
+      <div class="loader-text">Planting a new project...</div>
+    </div>
+    <div *ngIf="selectedType === 'brownfield'">
+      <div class="loader-icon brownfield">🏗️</div>
+      <div class="loader-text">Building on existing ground...</div>
+    </div>
+    <div class="spinner"></div>
+  </div>
+</div>
+
+  
+<div class="container" *ngIf="!showProjectSelection">
+  
+  
+  <div class="top">
+    <!-- <div class="titles" style="display: flex; align-items: center;">
+      <div class="title"> EXL</div>
+      <div class="divider"></div>
+      <div class="subtitle">Dev CoPilot</div>
+      
+    </div>
+    <div class="back-to-selection">
+      <button class="back-btn" (click)="goBackToProjectSelection()">← Change Project Type</button>
+      <span *ngIf="isGreenfield" class="project-badge greenfield">🌱 Greenfield</span>
+      <span *ngIf="isBrownfield" class="project-badge brownfield">🏗️ Brownfield</span>
+    </div> -->
+
+
+    <div class="top-content" style="display: flex; align-items: center; justify-content: space-between;">
+      <div class="titles" style="display: flex; align-items: center;">
+        <!-- <div class="title">EXL</div>
+        <div class="divider"></div> -->
+        <div class="subtitle">Dev CoPilot</div>
+      </div>
+      
+      <div class="back-to-selection">
+        <!-- <button class="back-btn" (click)="goBackToProjectSelection()">← Change Project Type</button> -->
+  <button 
+    class="btn-feedback" 
+    (click)="openFeedbackForm()"
+    [disabled]="!projectLifecycleData.projectID || projectLifecycleData.projectID === 0 || apicallvariable">
+    📊 Submit Feedback
+  </button>
+
+         <a href="assets/SOP.pdf" target="_blank">
+            <button class="back-btn"><i class="fas fa-download"></i> SOP</button></a>
+         <!-- <button class="back-btn" (click)="showSOP()">View SOP</button> -->
+         <button class="back-btn" (click)="confirmProjectTypeChange()"><i class="fas fa-sign-out-alt" style="font-size:14px; cursor:pointer;"></i> Change Project Field</button>
+        <span *ngIf="isGreenfield" class="project-badge greenfield">🌱 Greenfield</span>
+        <span *ngIf="isBrownfield" class="project-badge brownfield">🏗️ Brownfield</span>
+      </div>
+    </div>
+
+    <header>
+
+      <nav>
+        <button *ngFor="let tab of tabs" (click)="setActiveTab(tab)" [class.active]="activeTab === tab">
+          {{ tab }}
+        </button>
+      </nav>
+    </header>
+  </div>
+  <div *ngIf="activeTab === 'Insight Elicitation'"  class="tab-content">
+    <div class="main-content">
+      <!-- ░░░ Input BRD Section ░░░ -->
+      <div class="sections-row">
+        <div class="input-section" id="input-section">
+        <div style="display: flex; align-items: center; gap:10px;">
+          <h3>Detailed Business Requirements - BRD with TRD </h3>
+          <a href="assets/Template.pdf" target="_blank">
+            <button class="btn btn-secondary Template">View Template</button></a>
+        </div>
+
+        <div class="textarea-wrapper">
+          <!-- Read-only div when not editing -->
+          <div *ngIf="!editMode.input" #inputArea class="BRD display-div"  [textContent]="inputText"
+            (keydown)="handleTextareaKeys($event, 'input')" data-placeholder="Enter your detailed BRD here..."></div>
+
+          <!-- Textarea when editing -->
+          <textarea *ngIf="editMode.input" #inputTextarea class="BRD editable-textarea" [(ngModel)]="inputText"
+            (keydown)="handleTextareaKeys($event, 'input')" placeholder="Enter your detailed BRD here..."></textarea>
+
+          <!-- Minimal Edit Actions - Bottom Left -->
+          <div *ngIf="!editMode.input" class="edit-actions">
+            <button type="button" [disabled]="apicallvariable" class="edit-button" (click)="enterEditMode('input')"
+              title="Edit Content">
+              📝
+            </button>
+          </div>
+
+          <div *ngIf="editMode.input" class="edit-actions">
+            <button type="button" class="save-button" (click)="saveChanges('input')" title="Save Changes">
+              ✓
+            </button>
+            <button type="button" class="cancel-button" (click)="cancelEdit('input')" title="Cancel Edit">
+              ✕
+            </button>
+          </div>
+
+          <!-- Search Toggle - Top Right -->
+          <button type="button" class="search-toggle" *ngIf="!apicallvariable" (click)="openSearch('input')"
+            title="Search (Ctrl+F)">🔍</button>
+
+          <!-- Enhanced Search with Dropdown -->
+
+          <div *ngIf="searchBoxVisible.input && !apicallvariable" class="search-container">
+            <div class="search-wrapper">
+              <input #inputFinder class="search-bar" placeholder="Search or select..." [(ngModel)]="searchTerm.input"
+                (input)="performSearch('input')" (focus)="onSearchFocus('input')" (blur)="onSearchBlur('input')"
+                (keydown)="handleSearchKeys($event, 'input')" (keydown.arrowdown)="navigateDropdown('input', 1)"
+                (keydown.arrowup)="navigateDropdown('input', -1)" autocomplete="off">
+
+              <button *ngIf="searchTerm.input.trim()" type="button" class="clear-button" (click)="clearSearch('input')"
+                title="Clear search">✕</button>
+
+              <button type="button" class="dropdown-toggle" (mousedown)="onDropdownMouseDown('input')"
+                (click)="toggleDropdown('input')" [class.active]="dropdownVisible.input" title="Show options">▼</button>
+            </div>
+
+            <!-- Dropdown Options -->
+            <div *ngIf="dropdownVisible.input" class="dropdown-menu" (click)="$event.stopPropagation()"
+              (mousedown)="$event.preventDefault()">
+
+              <!-- Recent Searches -->
+              <div *ngIf="recentSearches.input.length > 0" class="dropdown-section">
+                <div class="dropdown-header">
+                  Recent Searches
+                  <button type="button" class="clear-all-recent" (click)="clearAllRecentSearches('input')"
+                    title="Clear all recent searches">Clear All</button>
+                </div>
+                <div *ngFor="let search of recentSearches.input; let i = index" class="dropdown-item recent-item"
+                  [class.highlighted]="selectedDropdownIndex.input === i">
+                  <span class="recent-icon">🕐</span>
+                  <span class="recent-text" (click)="selectSearchTerm('input', search)">{{search}}</span>
+                  <button type="button" class="remove-recent" (click)="removeRecentSearch('input', search, $event)"
+                    title="Remove from recent">✕</button>
+                </div>
+              </div>
+
+              <!-- Common Search Terms -->
+              <div *ngIf="getFilteredCommonTerms('input').length > 0" class="dropdown-section">
+                <div class="dropdown-header">Input Suggestions</div>
+                <div *ngFor="let term of getFilteredCommonTerms('input'); let i = index" class="dropdown-item"
+                  [class.highlighted]="selectedDropdownIndex.input === (recentSearches.input.length + i)"
+                  (click)="selectSearchTerm('input', term)">
+                  <span class="common-icon">🔍</span>
+                  <span [innerHTML]="highlightMatchingText(term, searchTerm.input)"></span>
+                </div>
+              </div>
+
+              <!-- Current Text Matches -->
+              <div *ngIf="filteredTerms.input.length > 0" class="dropdown-section">
+                <div class="dropdown-header">Found in Text</div>
+                <div *ngFor="let match of filteredTerms.input; let i = index" class="dropdown-item"
+                  [class.highlighted]="selectedDropdownIndex.input === (recentSearches.input.length + getFilteredCommonTerms('input').length + i)"
+                  (click)="selectSearchTerm('input', match)">
+                  📄 {{match}}
+                </div>
+              </div>
+
+              <!-- No Results -->
+              <div *ngIf="getTotalDropdownItems('input') === 0" class="dropdown-section">
+                <div class="dropdown-item no-results">No suggestions available</div>
+              </div>
+            </div>
+
+            <!-- Search Stats -->
+            <div *ngIf="searchTerm.input.trim() && !dropdownVisible.input" class="search-stats">
+              <span *ngIf="getMatchCount('input') > 0">
+                {{currentMatch.input + 1}} of {{getMatchCount('input')}}
+              </span>
+              <span *ngIf="getMatchCount('input') === 0">No matches found</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- ░░░ Output BRD Section ░░░ -->
+      <div class="output-section" >
+        <h3>Optimised Formatted - BRD with TRD</h3>
+
+        <div class="textarea-wrapper">
+          <!-- Read-only div when not editing -->
+          <div *ngIf="!editMode.output" [attr.data-placeholder]="getActiveTabPlaceholder()" #outputArea
+            class="BRD display-div" [textContent]="getActiveTabContent()"
+            (keydown)="handleTextareaKeys($event, 'output')" data-placeholder="Optimized BRD will appear here..."></div>
+
+          <!-- Textarea when editing -->
+          <textarea *ngIf="editMode.output" #outputTextarea class="BRD editable-textarea"
+            [placeholder]="getActiveTabPlaceholder()" [(ngModel)]="activeTabContent"
+            (keydown)="handleTextareaKeys($event, 'output')" placeholder="Optimized BRD will appear here..."></textarea>
+
+          <!-- Excel-Style Tabs - Bottom Left -->
+          <!-- Update only the click handlers in existing template -->
+          <div class="excel-tabs" >
+            <div class="tab-item" [class.active]="activeOutputTab === 'output1'" (click)="switchOutputTab('output1')">
+              <span class="tab-label">Step 1</span>
+            </div>
+            <div class="tab-item" [class.active]="activeOutputTab === 'output2'" (click)="switchOutputTab('output2')">
+              <span class="tab-label">Step 2</span>
+            </div>
+            <div class="tab-item" [class.active]="activeOutputTab === 'output3'" (click)="switchOutputTab('output3')">
+              <span class="tab-label">Step 3</span>
+            </div>
+            <div class="tab-item" [class.active]="activeOutputTab === 'output4'" (click)="switchOutputTab('output4')">
+              <span class="tab-label">Step 4</span>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Actions - Bottom Left -->
+          <div *ngIf="!editMode.output" class="edit-actions">
+            <button type="button" class="edit-button" [disabled]="apicallvariable" (click)="enterEditMode('output')"
+              title="Edit Content">
+              📝
+            </button>
+          </div>
+
+          <div *ngIf="editMode.output" class="edit-actions">
+            <button type="button" class="save-button" (click)="saveChanges('output')" title="Save Changes">
+              ✓
+            </button>
+            <button type="button" class="cancel-button" (click)="cancelEdit('output')" title="Cancel Edit">
+              ✕
+            </button>
+          </div>
+
+          <!-- Search Toggle - Top Right -->
+          <button type="button" *ngIf="!apicallvariable" class="search-toggle" (click)="openSearch('output')"
+            title="Search (Ctrl+F)">🔍</button>
+
+          <!-- Enhanced Search with Dropdown -->
+          <div *ngIf="searchBoxVisible.output" class="search-container">
+            <div class="search-wrapper">
+              <input #outputFinder class="search-bar" placeholder="Search or select..." [(ngModel)]="searchTerm.output"
+                (input)="performSearch('output')" (focus)="onSearchFocus('output')" (blur)="onSearchBlur('output')"
+                (keydown)="handleSearchKeys($event, 'output')" (keydown.arrowdown)="navigateDropdown('output', 1)"
+                (keydown.arrowup)="navigateDropdown('output', -1)" autocomplete="off">
+
+              <button *ngIf="searchTerm.output.trim()" type="button" class="clear-button"
+                (click)="clearSearch('output')" title="Clear search">✕</button>
+
+              <button type="button" class="dropdown-toggle" (mousedown)="onDropdownMouseDown('output')"
+                (click)="toggleDropdown('output')" [class.active]="dropdownVisible.output"
+                title="Show options">▼</button>
+            </div>
+
+            <!-- Dropdown Options -->
+            <div *ngIf="dropdownVisible.output" class="dropdown-menu" (click)="$event.stopPropagation()"
+              (mousedown)="$event.preventDefault()">
+
+              <!-- Recent Searches -->
+              <div *ngIf="recentSearches.output.length > 0" class="dropdown-section">
+                <div class="dropdown-header">
+                  Recent Searches
+                  <button type="button" class="clear-all-recent" (click)="clearAllRecentSearches('output')"
+                    title="Clear all recent searches">Clear All</button>
+                </div>
+                <div *ngFor="let search of recentSearches.output; let i = index" class="dropdown-item recent-item"
+                  [class.highlighted]="selectedDropdownIndex.output === i">
+                  <span class="recent-icon">🕐</span>
+                  <span class="recent-text" (click)="selectSearchTerm('output', search)">{{search}}</span>
+                  <button type="button" class="remove-recent" (click)="removeRecentSearch('output', search, $event)"
+                    title="Remove from recent">✕</button>
+                </div>
+              </div>
+
+              <!-- Common Search Terms -->
+              <div *ngIf="getFilteredCommonTerms('output').length > 0" class="dropdown-section">
+                <div class="dropdown-header">Output Suggestions</div>
+                <div *ngFor="let term of getFilteredCommonTerms('output'); let i = index" class="dropdown-item"
+                  [class.highlighted]="selectedDropdownIndex.output === (recentSearches.output.length + i)"
+                  (click)="selectSearchTerm('output', term)">
+                  <span class="common-icon">🔍</span>
+                  <span [innerHTML]="highlightMatchingText(term, searchTerm.output)"></span>
+                </div>
+              </div>
+
+              <!-- Current Text Matches -->
+              <div *ngIf="filteredTerms.output.length > 0" class="dropdown-section">
+                <div class="dropdown-header">Found in Text</div>
+                <div *ngFor="let match of filteredTerms.output; let i = index" class="dropdown-item"
+                  [class.highlighted]="selectedDropdownIndex.output === (recentSearches.output.length + getFilteredCommonTerms('output').length + i)"
+                  (click)="selectSearchTerm('output', match)">
+                  📄 {{match}}
+                </div>
+              </div>
+
+              <!-- No Results -->
+              <div *ngIf="getTotalDropdownItems('output') === 0" class="dropdown-section">
+                <div class="dropdown-item no-results">No suggestions available</div>
+              </div>
+            </div>
+
+            <!-- Search Stats -->
+            <div *ngIf="searchTerm.output.trim() && !dropdownVisible.output" class="search-stats">
+              <span *ngIf="getMatchCount('output') > 0">
+                {{currentMatch.output + 1}} of {{getMatchCount('output')}}
+              </span>
+              <span *ngIf="getMatchCount('output') === 0">No matches found</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      </div>
+
+    <div class="buttons-processing">
+      <div class="action-buttons2" style="text-align: center;">
+      <button [disabled]="apicallvariable" (click)="uploadBRD()"> <i class="fa fa-upload"></i>
+        Upload BRD</button>
+      <button (click)="analyzeBRD()" [disabled]="apicallvariable">{{ insidestep1 ? 'Analyze BRD' : 'PROCEED TO NEXT
+        STEP' }}</button>
+      <button (click)="SuggestBRD()" *ngIf="insidestep1" [disabled]="apicallvariable">Suggest BRD</button>
+
+      <input type="file" accept=".zip" (change)="uploadagentic($event)" #fileInput style="display: none;">
+
+      <button [disabled]="apicallvariable" type="button" class="btn btn-secondary me-2" (click)="fileInput.click()">
+        <i class="fas fa-upload"></i> Upload All Responses
+      </button>
+    </div>
+    <div style="display: flex; align-items: stretch; justify-content: flex-end; margin-top: 15px;
+    margin-right: 25px;">
+          <div class="processing-container" style="margin-left: 10px;">
+            <div class="processing-container">
+              <div *ngIf="isAnalyzingBRD" class="processing-text">Processing</div>
+              <div *ngIf="isAnalyzingBRD" class="loading-box-container">
+
+                <div class="loading-box"></div>
+              </div>
+              <div *ngIf="responseBRD">
+                <!-- <div class="processing-text">Processing </div> -->
+                <div class="response">RESPONSE RECEIVED</div>
+              </div>
+
+
+              <div *ngIf="abortedBRD">
+                <div class="response"><i>You stopped this response</i></div>
+              </div>
+
+            </div>
+          </div>
+          <div *ngIf="isAnalyzingBRD"><i class="fa fa-stop" id="abort-icon-BRD" title="abort"
+              style="color: #fb4e0b; padding-left: 9px; font-size: 25px; cursor: pointer;" (click)="abortBRD()"></i>
+          </div>
+        </div>
+    
+    </div>
+    </div>
+
+
+
+
+    
+    <div *ngIf="isVisible" style="display: flex; align-items: center;" class="tasktudo">
+      <label for="task"
+        style="margin-right: 10px; font-weight: bold; color: #797676;font-size: smaller; font-family: 'Arial', sans-serif;">Task:</label>
+      <input class="task-input" id="task" type="text" [(ngModel)]="taskInput" />
+    </div>
+  </div>
+
+
+  <!-- ░░░ Solidification Tab Section ░░░ -->
+  <div *ngIf="activeTab === 'Solidification'" class="tab-content">
+    <div class="main-content">
+      <div class="input-section">
+        <h3>Integrated Requirement and Solution Specification (IRSS)</h3>
+
+        <div class="textarea-wrapper">
+          <!-- Read-only div when not editing -->
+          <div *ngIf="!editMode.tech"
+             #techArea
+             class="BRD display-div"
+             [textContent]="getActiveTechTabContent()"
+             (keydown)="handleTextareaKeys($event, 'tech')"
+             [attr.data-placeholder]="getActiveTechTabPlaceholder()"></div>
+
+        <!-- Textarea when editing -->
+        <textarea *ngIf="editMode.tech"
+                  #techTextarea
+                  class="BRD editable-textarea"
+                  [(ngModel)]="activeTechTabContent"
+                  (keydown)="handleTextareaKeys($event, 'tech')"
+                  [placeholder]="getActiveTechTabPlaceholder()"></textarea>
+
+        <!-- Excel-Style Tabs for Tech - Bottom Left -->
+        <div class="excel-tabs">
+          <div class="tab-item" 
+               [class.active]="activeTechTab === 'requirement'"
+               (click)="switchTechTab('requirement')">
+            <span class="tab-label">Step 1</span>
+          </div>
+          <div class="tab-item" 
+               [class.active]="activeTechTab === 'solution'"
+               (click)="switchTechTab('solution')">
+            <span class="tab-label">Step 2</span>
+          </div>
+          <div class="tab-item" 
+               [class.active]="activeTechTab === 'solution3'"
+               (click)="switchTechTab('solution3')">
+            <span class="tab-label">Step 3</span>
+          </div>
+        </div>
+            
+          <!-- Minimal Edit Actions - Bottom Left -->
+          <div *ngIf="!editMode.tech" class="edit-actions">
+            <button type="button" class="edit-button" [disabled]="apicallvariable" (click)="enterEditMode('tech')"
+              title="Edit Content">
+              📝
+            </button>
+          </div>
+
+          <div *ngIf="editMode.tech" class="edit-actions">
+            <button type="button" class="save-button" (click)="saveChanges('tech')" title="Save Changes">
+              ✓
+            </button>
+            <button type="button" class="cancel-button" (click)="cancelEdit('tech')" title="Cancel Edit">
+              ✕
+            </button>
+          </div>
+
+          <!-- Search Toggle - Top Right -->
+          <button type="button" *ngIf="!apicallvariable" class="search-toggle" (click)="openSearch('tech')"
+            title="Search (Ctrl+F)">🔍</button>
+
+          <!-- Enhanced Search with Dropdown -->
+          <div *ngIf="searchBoxVisible.tech" class="search-container">
+            <div class="search-wrapper">
+              <input #techFinder class="search-bar" placeholder="Search or select..." [(ngModel)]="searchTerm.tech"
+                (input)="performSearch('tech')" (focus)="onSearchFocus('tech')" (blur)="onSearchBlur('tech')"
+                (keydown)="handleSearchKeys($event, 'tech')" (keydown.arrowdown)="navigateDropdown('tech', 1)"
+                (keydown.arrowup)="navigateDropdown('tech', -1)" autocomplete="off">
+
+              <button *ngIf="searchTerm.tech.trim()" type="button" class="clear-button" (click)="clearSearch('tech')"
+                title="Clear search">✕</button>
+
+              <button type="button" class="dropdown-toggle" (mousedown)="onDropdownMouseDown('tech')"
+                (click)="toggleDropdown('tech')" [class.active]="dropdownVisible.tech" title="Show options">▼</button>
+            </div>
+
+            <!-- Dropdown Options -->
+            <div *ngIf="dropdownVisible.tech" class="dropdown-menu" (click)="$event.stopPropagation()"
+              (mousedown)="$event.preventDefault()">
+
+              <!-- Recent Searches -->
+              <div *ngIf="recentSearches.tech.length > 0" class="dropdown-section">
+                <div class="dropdown-header">
+                  Recent Searches
+                  <button type="button" class="clear-all-recent" (click)="clearAllRecentSearches('tech')"
+                    title="Clear all recent searches">Clear All</button>
+                </div>
+                <div *ngFor="let search of recentSearches.tech; let i = index" class="dropdown-item recent-item"
+                  [class.highlighted]="selectedDropdownIndex.tech === i">
+                  <span class="recent-icon">🕐</span>
+                  <span class="recent-text" (click)="selectSearchTerm('tech', search)">{{search}}</span>
+                  <button type="button" class="remove-recent" (click)="removeRecentSearch('tech', search, $event)"
+                    title="Remove from recent">✕</button>
+                </div>
+              </div>
+
+              <!-- Common Search Terms -->
+              <div *ngIf="getFilteredCommonTerms('tech').length > 0" class="dropdown-section">
+                <div class="dropdown-header">Tech Suggestions</div>
+                <div *ngFor="let term of getFilteredCommonTerms('tech'); let i = index" class="dropdown-item"
+                  [class.highlighted]="selectedDropdownIndex.tech === (recentSearches.tech.length + i)"
+                  (click)="selectSearchTerm('tech', term)">
+                  <span class="common-icon">🔍</span>
+                  <span [innerHTML]="highlightMatchingText(term, searchTerm.tech)"></span>
+                </div>
+              </div>
+
+              <!-- Current Text Matches -->
+              <div *ngIf="filteredTerms.tech.length > 0" class="dropdown-section">
+                <div class="dropdown-header">Found in Text</div>
+                <div *ngFor="let match of filteredTerms.tech; let i = index" class="dropdown-item"
+                  [class.highlighted]="selectedDropdownIndex.tech === (recentSearches.tech.length + getFilteredCommonTerms('tech').length + i)"
+                  (click)="selectSearchTerm('tech', match)">
+                  📄 {{match}}
+                </div>
+              </div>
+
+              <!-- No Results -->
+              <div *ngIf="getTotalDropdownItems('tech') === 0" class="dropdown-section">
+                <div class="dropdown-item no-results">No suggestions available</div>
+              </div>
+            </div>
+
+            <!-- Search Stats -->
+            <div *ngIf="searchTerm.tech.trim() && !dropdownVisible.tech" class="search-stats">
+              <span *ngIf="getMatchCount('tech') > 0">
+                {{currentMatch.tech + 1}} of {{getMatchCount('tech')}}
+              </span>
+              <span *ngIf="getMatchCount('tech') === 0">No matches found</span>
+            </div>
+          </div>
+
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-right: 20px;">
+          <div class="action-buttons" style="display: flex; align-items: center;">
+            <button (click)="solidify()" [disabled]="apicallvariable">Solidification</button>
+          </div>
+          <div class="processing-container" style="margin-left: 10px;">
+            <div class="processing-container">
+              <div *ngIf="isAnalyzingSOL" class="processing-text">Processing </div>
+              <div *ngIf="isAnalyzingSOL" class="loading-box-container">
+                <div class="loading-box"></div>
+                <!-- <div class="loading-box"></div>
+              <div class="loading-box"></div> -->
+              </div>
+              <div>
+                <div class="response">{{SOLfeedback}}</div>
+              </div>
+            </div>
+            <div *ngIf="isAnalyzingSOL"><i class="fa fa-stop" id="abort-icon-SOL" title="abort"
+                style="color: #fb4e0b; padding-left: 9px; font-size: 25px; cursor: pointer; margin-right: 10px;"
+                (click)="abortSOL()"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+
+  </div>
+
+  <div *ngIf="activeTab === 'Blueprinting'" class="tab-content">
+    <nav>
+      <button *ngFor="let subTab of blueprintingSubTabs" (click)="setActiveBlueprintingSubTab(subTab)"
+        [class.active]="activeBlueprintingSubTab === subTab" class="blueprinting-sub-tab"
+        [class.always-selected-tab]="alwaysSelectedTabs.includes(subTab)">
+        <input type="checkbox" class="always-selected-checkbox"
+          [class.always-selected-checkbox]="alwaysSelectedTabs.includes(subTab)" [(ngModel)]="selectedTabs[subTab]"
+          (click)="$event.stopPropagation()" />
+        {{ subTab }}
+      </button>
+    </nav>
+
+    <div *ngIf="activeBlueprintingSubTab === 'Requirement Summary'" class="sub-tab-content">
+      <textarea [(ngModel)]="requirementSummary" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Solution Overview'" class="sub-tab-content">
+      <textarea [(ngModel)]="solutionOverview" class="full-width-textarea-SOL" style="white-space: pre; overflow-x: auto; font-family: monospace;"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Project Structure'" class="sub-tab-content">
+      <div class="project-structure-container">
+        <div class="description-section">
+          <h4>Project Structure Description</h4>
+          <textarea style="font-size: 11px;" [(ngModel)]="projectStructureDescription"
+            class="full-width-textarea"></textarea>
+        </div>
+
+        <div class="folder-structure-section">
+          <h4>Folder Structure</h4>
+          <div class="folder-tree">
+            <ng-container
+              *ngTemplateOutlet="folderTemplate; context: { $implicit: folderStructure, level: 0 }"></ng-container>
+          </div>
+        </div>
+
+
+        <ng-template #folderTemplate let-items let-level="level">
+          <ul style="font-size: 11px;">
+            <li *ngFor="let item of items; let last = last" [class.last-child]="last">
+              <div class="tree-node" [style.padding-left.px]="level * 20">
+                <!-- FOLDERS -->
+                <span *ngIf="item.type === 'folder'" class="folder-icon" (click)="toggleFolder(item)">
+                  {{ item.expanded ? "[-]" : "[+]" }}
+                </span>
+
+                <!-- FILES with code/description -->
+                <span *ngIf="item.type === 'file' && (item.code || item.description)" class="file-icon"
+                  (click)="toggleFolder(item)"> <!-- reuse toggle to open sub-list -->
+                  {{ item.expanded ? "[-]" : "[+]" }}
+                </span>
+
+                <!-- Plain files without sub-content -->
+                <span *ngIf="item.type === 'file' && !(item.code || item.description)" class="file-icon">
+                  &#9679;
+                </span>
+
+                <!-- Label click -->
+                <span
+                  (click)="selectTreeNode(item); item.type === 'file' ? showFileContent(item) : showFolderContent(item)"
+                  [class.selected]="selectedTreeNode === item">
+                  {{ item.type === 'file' ? '📄' + item.name : '📁' + item.name }}
+                </span>
+              </div>
+
+              <!-- CHILDREN (regular folders) -->
+              <ng-container *ngIf="item.type === 'folder' && item.expanded">
+                <ng-container *ngTemplateOutlet="folderTemplate;
+                   context:{ $implicit:item.children, level: level + 1 }">
+                </ng-container>
+              </ng-container>
+
+              <!-- “code” / “description” sub-nodes -->
+              <ng-container *ngIf="item.type === 'file'
+                           && item.expanded
+                           && (item.code || item.description)">
+                <ul>
+                  <li *ngIf="item.code">
+                    <div class="tree-node" [style.padding-left.px]="(level + 1) * 20">
+                      <span class="file-icon">&#9679;</span>
+                      <span (click)="selectTreeNode(item);" [class.selected]="selectedTreeNode === item"
+                        (click)="showFileContent({content: item.code, name: item.name + ' – code'})">
+                        code
+                      </span>
+                    </div>
+                  </li>
+                  <li *ngIf="item.description">
+                    <div class="tree-node" [style.padding-left.px]="(level + 1) * 20">
+                      <span class="file-icon">&#9679;</span>
+                      <span (click)="showFileContent({content: item.description, name: item.name + ' – description'})">
+                        description
+                      </span>
+
+                    </div>
+                  </li>
+                </ul>
+              </ng-container>
+            </li>
+          </ul>
+        </ng-template>
+        <!-- <ng-template #folderTemplate let-items let-level="level">
+        <ul style="font-size: 11px;">
+          <li *ngFor="let item of items; let last = last" [class.last-child]="last">
+            <div class="tree-node" [style.padding-left.px]="level * 20">
+              <span *ngIf="item.type === 'folder'" class="folder-icon" (click)="toggleFolder(item)">
+                {{ item.expanded ? "[-]" : "[+]" }}
+              </span>
+              <span *ngIf="item.type === 'file'" class="file-icon">&#9679;</span>
+              <span (click)="selectTreeNode(item); item.type === 'file' ? showFileContent(item) : showFolderContent(item)" 
+                 [class.selected]="selectedTreeNode === item">
+                {{ item.type === 'file' ? '📄' + item.name : '📁' + item.name }}
+
+              </span>
+            </div>
+            <ng-container *ngIf="item.type === 'folder' && item.expanded">
+              <ng-container
+                *ngTemplateOutlet="folderTemplate; context: { $implicit: item.children, level: level + 1 }"></ng-container>
+            </ng-container>
+          </li>
+        </ul>
+      </ng-template> -->
+
+        <div class="file-content-section">
+          <h4>Content</h4>
+          <textarea style="font-size: 11px;" [(ngModel)]="selectedContent" class="full-width-textarea"
+            readonly></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="activeBlueprintingSubTab === 'Data Flow'" class="sub-tab-content">
+      <textarea [(ngModel)]="dataFlow" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Unit Testing'" class="sub-tab-content">
+      <textarea [(ngModel)]="unitTesting" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Common Functionalities'" class="sub-tab-content">
+      <textarea [(ngModel)]="commonFunctionalities" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Database Scripts'" class="sub-tab-content">
+      <textarea [(ngModel)]="databaseScripts" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Functional Testing'" class="sub-tab-content">
+      <textarea [(ngModel)]="FunctionalTesting" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Integration Testing'" class="sub-tab-content">
+      <textarea [(ngModel)]="IntegrationTesting" class="full-width-textarea-SOL"></textarea>
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Documentation'" class="sub-tab-content">
+      <div class="doc-template-wrapper">
+        <div class="doc-sidebar">
+          <button class="doc-tab-button" [class.active]="activeTabDocumentation === 'hld'"
+            (click)="showTemplate('hld')"><i class="fas fa-file-alt" style="margin-right: 8px;"></i>HLD</button>
+          <button class="doc-tab-button" [class.active]="activeTabDocumentation === 'lld'"
+            (click)="showTemplate('lld')"><i class="fas fa-file-alt" style="margin-right: 8px;"></i>LLD</button>
+          <button class="doc-tab-button" [class.active]="activeTabDocumentation === 'userManual'"
+            (click)="showTemplate('userManual')"><i class="fas fa-file-alt" style="margin-right: 8px;"></i>User
+            Manual</button>
+          <button class="doc-tab-button" [class.active]="activeTabDocumentation === 'traceabilityMatrix'"
+            (click)="showTemplate('traceabilityMatrix')"><i class="fas fa-file-alt"
+              style="margin-right: 8px;"></i>Traceability Matrix</button>
+        </div>
+        <div class="doc-content">
+          <textarea class="full-width-textarea" style="height: 61vh;  margin-top: 0px;" [value]="templateContent"
+            readonly></textarea>
+        </div>
+      </div>
+
+
+    </div>
+    <div *ngIf="activeBlueprintingSubTab === 'Code Review'" class="sub-tab-content">
+      <div class="doc-template-wrapper">
+        <div class="doc-sidebar">
+          <button class="doc-tab-button" [class.active]="activeTabCodeReview === 'UploadChecklist'"
+            (click)="activeTabCodeReview = 'UploadChecklist'">
+            <label class="upload-icon-label">
+              <i class="fa fa-upload"></i>
+              <input type="file" accept=".txt" class="upload-input"
+                (change)="onFileUpload('UploadChecklist', $event)" />
+            </label> Upload Checklist</button>
+          <button class="doc-tab-button" [class.active]="activeTabCodeReview === 'UplaodBestPractice'"
+            (click)="activeTabCodeReview = 'UploadBestPractice'">
+            <label class="upload-icon-label">
+              <i class="fa fa-upload"></i>
+              <input type="file" accept=".txt" class="upload-input"
+                (change)="onFileUpload('UploadBestPractice', $event)" />
+            </label>Uplaod Best Practice</button>
+          <button class="doc-tab-button" [class.active]="activeTabCodeReview === 'EnterLanguageType'"
+            (click)="activeTabCodeReview = 'EnterLanguageType'">
+            <label class="upload-icon-label">
+              <i class="fa fa-upload"></i>
+              <input type="file" accept=".txt" class="upload-input"
+                (change)="onFileUpload('EnterLanguageType', $event)" />
+            </label>Enter Language Type</button>
+        </div>
+        <div class="doc-content">
+          <textarea class="full-width-textarea" style="height: 61vh;  margin-top: 0px;" [(ngModel)]="CodeReviewContent"
+            placeholder="Upload or paste your code review content..."></textarea>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: space-between; margin-right: 20px;">
+      <div class="action-buttons" style="display: flex; align-items: center;">
+        <button *ngIf="!structureuploaded" (click)="blueprinting()" [disabled]="apicallvariable">Blueprinting</button>
+        <!-- Hidden file input + visible button -->
+        <div *ngIf="inprojectstructure && !apicallvariable" id="dropdown">
+          <button id="uploadButton" (click)="toggleDropdownoptions()">
+            Upload Structure
+          </button>
+
+          <!-- menu -->
+          <div id="menu" [hidden]="!dropdownOpen" (mouseleave)="dropdownOpen = false">
+
+            <button id="solutionItem" (click)="solutionInput.click(); dropdownOpen = false">
+              Solution Structure
+            </button>
+
+            <button id="projectItem" (click)="projectInput.click(); dropdownOpen = false">
+              Project Structure
+            </button>
+          </div>
+          
+        </div>
+
+
+        <!-- hidden inputs (must keep the #refs) -->
+        <input id="solutionInput" #solutionInput type="file" accept=".zip" hidden
+          (change)="onSolutionZipSelected($event)">
+        <input id="projectInput" #projectInput type="file" accept=".zip" hidden (change)="onProjectZipSelected($event)">
+
+
+        <button *ngIf="inprojectstructure" (click)="callreverseEngineering()" [disabled]="apicallvariable">Reverse
+          Engineering</button>
+        <div *ngIf="inprojectstructure" class="brdwithtrd" style="padding-left: 0px;">
+          <label>
+            <input type="checkbox" [(ngModel)]="generateBRDWithTRD" [disabled]="apicallvariable" />
+            <span class="italic">GenerateBRDwithTRD</span>
+          </label>
+        </div>
+          
+        <!-- <pre>{{folderStructure | json}}</pre> -->
+
+      </div>
+      <div class="processing-container" style="margin-left: 10px;">
+        <div class="processing-container">
+          <div *ngIf="isAnalyzingBLU" class="processing-text">Processing </div>
+          <div *ngIf="isAnalyzingBLU" class="loading-box-container">
+            <div class="loading-box"></div>
+            <!-- <div class="loading-box"></div>
+            <div class="loading-box"></div> -->
+          </div>
+          <div>
+            <div class="response">{{BLUfeedback}}</div>
+          </div>
+        </div>
+
+        <div *ngIf="isAnalyzingBLU"><i class="fa fa-stop" id="abort-icon-BLU" title="abort"
+            style="color: #fb4e0b; padding-left: 9px; font-size: 25px; cursor: pointer;margin-right: 10px;"
+            (click)="abortBLU()" (click)="abortREV()"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- Placeholder for Code Synthesis tab -->
+  <!-- ... existing code ... -->
+
+  <!-- code-synthesis.component.html -->
+  <div *ngIf="activeTab === 'Code Synthesis'" class="tab-content">
+
+    <!-- ============= left : folder tree ============= -->
+    <div class="code-synthesis-container">
+      <div class="code-folder-structure-section">
+        <h4>Solution Folder Structure <i class="fas fa-sync-alt" (click)="refreshFolderStructure()"
+            style="cursor: pointer; color: rgb(255, 255, 255);;"></i></h4>
+        <div class="code-folder-tree">
+          <ng-container *ngTemplateOutlet="
+        codeFolderTemplate;
+        context: { $implicit: codeSynthesisFolderStructure, level: 0, parentPath: '' }
+      "></ng-container>
+        </div>
+
+      </div>
+
+      <!-- ============= right : file content ============= -->
+      <div class="code-content-section">
+        <h4>Content</h4>
+        <textarea class="SOLtree full-width-textarea"
+          style=" white-space: pre; overflow-x: auto; font-family: monospace;" rows="10" cols="150" readonly
+          [(ngModel)]="selectedCodeContent">
+      </textarea>
+
+      </div>
+    </div>
+
+    <!-- global “describe code” toggle -->
+    <div class="checkbox-common" style="display:flex">
+      <div class="checkbox-container">
+        <label>
+          <input type="checkbox" [(ngModel)]="isdescribe" [disabled]="isAnalyzingCOD" />
+          <span class="italic">Describe Code</span>
+        </label>
+      </div>
+
+      <div class="checkbox-container">
+        <label>
+          <input type="checkbox" [(ngModel)]="iscodeReview" [disabled]="isAnalyzingCOD || (!UploadChecklist && !EnterLanguageType && !UplaodBestPractice)" />
+          <span class="italic">Code Review</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- buttons / processing indicator -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-right:20px;">
+      <div class="action-buttons" style="display:flex;align-items:center;">
+        <button (click)="startCodeSynthesis()" [disabled]="apicallvariable">Code Synthesis</button>
+        <button *ngIf="codeSynthesisFolderStructureboolean" (click)="downloadZip()">Download &amp; Save Structure</button>
+        <button (click)="  saveagentictext()"><i class="fa fa-download"></i> Save All Responses </button>
+      </div>
+
+      <div class="processing-container" style="margin-left:10px;">
+        <div *ngIf="isAnalyzingCOD" class="processing-text">Processing</div>
+        <div *ngIf="isAnalyzingCOD" class="loading-box-container">
+          <div class="loading-box"></div>
+        </div>
+        <div>
+          <div class="response">{{CODfeedback}}</div>
+        </div>
+
+        <div *ngIf="isAnalyzingCOD">
+          <i class="fa fa-stop" id="abort-icon-COD" (click)="abortCOD()" title="abort"
+            style="color:#fb4e0b;padding-left:9px;font-size:25px;cursor:pointer;margin-right:10px;">
+          </i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= RECURSIVE TEMPLATE ================= -->
+    <ng-template #codeFolderTemplate let-items let-level="level" let-parentPath="parentPath">
+      <ul class="code-tree">
+        <li *ngFor="let item of items; let last = last" [class.last-child]="last">
+          <div class="code-tree-node" [style.padding-left.px]="level * 20">
+
+            <!-- NEW selection checkbox -->
+            <input type="checkbox" [(ngModel)]="item.selected" (click)="$event.stopPropagation()"
+              (change)="onSelectionChange(item)" [disabled]="isAnalyzingCOD" />
+
+            <!-- existing icons & filename -->
+            <span [class.currently-processing]="item.name === currentProcessingFile && isAnalyzingCOD"
+              [class.selected-node]="currentSelectedNode === item" *ngIf="item.type === 'folder'"
+              class="code-folder-icon" (click)="toggleCodeFolder(item)">
+              {{ item.expanded ? '[-]' : '[+]' }}
+            </span>
+            <span [class.currently-processing]="item.name === currentProcessingFile && isAnalyzingCOD"
+              [class.selected-node]="currentSelectedNode === item"
+              *ngIf="item.type === 'file' && (item.code || item.description || item.codeReview)" class="code-file-icon"
+              (click)="toggleCodeFile(item)">
+              {{ item.expanded ? '[-]' : '[+]' }}
+            </span>
+            <span [class.currently-processing]="item.name === currentProcessingFile && isAnalyzingCOD"
+              [class.selected-node]="currentSelectedNode === item"
+              *ngIf="item.type === 'file' && !(item.code || item.description || item.codeReview)" class="code-file-icon">
+              &#9679;
+            </span>
+            <span [class.currently-processing]="item.name === currentProcessingFile && isAnalyzingCOD"
+              [class.selected-node]="currentSelectedNode === item"
+              (click)="selectCodeTreeNode(item); showCodeContent(item.content)"
+              [class.selected]="selectedCodeTreeNode === item"><i *ngIf="level===2 && mandatory(item)" class="fas fa-sync-alt" (click)="refreshSingleFolder(item)"
+            style="cursor: pointer; color: rgb(255, 255, 255);;"></i>
+              {{ item.type === 'file' ? '📄' + item.name : '📁' + item.name }}
+
+            </span>
+          </div>
+
+          <!-- children -->
+          <ng-container *ngIf="item.type === 'folder' && item.expanded">
+            <ng-container
+              *ngTemplateOutlet="codeFolderTemplate;
+                                           context:{ $implicit: item.children,
+                                                     level: level + 1,
+                                                    parentPath: (parentPath ? parentPath + '/' + item.name : item.name) }">
+            </ng-container>
+          </ng-container>
+
+          <!-- “code / description” pseudo-files -->
+          <ng-container *ngIf="item.type === 'file' &&
+                             item.expanded &&
+                             (item.code || item.description || item.codeReview)">
+            <ul class="code-tree">
+              <li *ngIf="item.code">
+                <div class="code-tree-node" [style.padding-left.px]="(level + 1) * 20">
+                  <span class="code-file-icon">&#9679;</span>
+                  <span (click)="selectCodeTreeNode(item, 'code'); showCodeContent(item.code)"
+                    [class.selected]="selectedCodeTreeNode === item && selectedCodeTreeNodeType === 'code'">
+                    code
+                  </span>
+                  <i *ngIf="item.isCodeGenerated" class="fa fa-trash"
+                    style="color: #dc3545; margin-left: 8px; cursor: pointer; font-size: 12px;" title="Delete code"
+                    (click)="deleteGenerated(item, 'code')"></i>
+                </div>
+              </li>
+              <li *ngIf="item.description">
+                <div class="code-tree-node" [style.padding-left.px]="(level + 1) * 20">
+                  <span class="code-file-icon">&#9679;</span>
+                  <span (click)="selectCodeTreeNode(item, 'description'); showCodeContent(item.description)"
+                    [class.selected]="selectedCodeTreeNode === item && selectedCodeTreeNodeType === 'description'">
+                    description
+                  </span>
+                  <i *ngIf="item.isDescriptionGenerated" class="fa fa-trash"
+                    style="color: #dc3545; margin-left: 8px; cursor: pointer; font-size: 12px;"
+                    title="Delete description" (click)="deleteGenerated(item, 'description')"></i>
+                </div>
+              </li>
+              <li *ngIf="item.codeReview">
+                <div class="code-tree-node" [style.padding-left.px]="(level + 1) * 20">
+                  <span class="code-file-icon">&#9679;</span>
+                  <span (click)="selectCodeTreeNode(item, 'codeReview'); showCodeContent(item.codeReview)"
+                    [class.selected]="selectedCodeTreeNode === item && selectedCodeTreeNodeType === 'codeReview'">
+                    codeReview
+                  </span>
+                  <i *ngIf="item.iscodeReviewGenerated" class="fa fa-trash"
+                    style="color: #dc3545; margin-left: 8px; cursor: pointer; font-size: 12px;"
+                    title="Delete codeReview" (click)="deleteGenerated(item, 'codeReview')"></i>
+                </div>
+              </li>
+            </ul>
+          </ng-container>
+        </li>
+      </ul>
+    </ng-template>
+    <!-- Custom Confirmation Dialog -->
+    <!-- Custom Confirmation Dialog -->
+    <div *ngIf="showConfirmDialog" class="custom-confirm-overlay" (keydown.escape)="closeConfirmDialog()" tabindex="0">
+      <div class="custom-confirm-dialog">
+        <div class="custom-confirm-message">{{ confirmMessage }}</div>
+        <div class="custom-confirm-buttons">
+          <button class="custom-confirm-btn custom-confirm-yes" (click)="onConfirmYes()">Yes</button>
+          <button class="custom-confirm-btn custom-confirm-no" (click)="onConfirmNo()">No</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+<!-- </div> -->
+<!-- <router-outlet *ngIf="routes.url === '/login' || routes.url === '/sign-up'"></router-outlet> -->

@@ -1,0 +1,87 @@
+2025-11-09 12:27:02.316 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-11-09 12:27:02.882 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-11-09 12:27:02.926 +05:30 [INF] Now listening on: http://localhost:5192
+2025-11-09 12:27:02.928 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-09 12:27:02.928 +05:30 [INF] Hosting environment: Development
+2025-11-09 12:27:02.928 +05:30 [INF] Content root path: D:\GenAI2025\backend
+2025-11-09 12:29:36.145 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger-ui.html - null null
+2025-11-09 12:29:36.314 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger-ui.html - 404 0 null 174.7211ms
+2025-11-09 12:29:36.317 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5192/swagger-ui.html, Response status code: 404
+2025-11-09 12:29:38.821 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger-ui.html - null null
+2025-11-09 12:29:38.825 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger-ui.html - 404 0 null 4.9087ms
+2025-11-09 12:29:38.825 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5192/swagger-ui.html, Response status code: 404
+2025-11-09 12:29:40.227 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger-ui.html - null null
+2025-11-09 12:29:40.231 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger-ui.html - 404 0 null 3.6609ms
+2025-11-09 12:29:40.231 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5192/swagger-ui.html, Response status code: 404
+2025-11-09 12:29:41.445 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger-ui.html - null null
+2025-11-09 12:29:41.448 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger-ui.html - 404 0 null 0.4315ms
+2025-11-09 12:29:41.448 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5192/swagger-ui.html, Response status code: 404
+2025-11-09 12:29:43.602 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5192/swagger-ui.html - null null
+2025-11-09 12:29:43.603 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5192/swagger-ui.html - 404 0 null 0.7594ms
+2025-11-09 12:29:43.603 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5192/swagger-ui.html, Response status code: 404
+2025-11-09 12:51:23.443 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/Database/createproject - null null
+2025-11-09 12:51:23.567 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:51:23.574 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/Database/createproject - 204 null null 133.2836ms
+2025-11-09 12:51:23.579 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/Database/createproject - application/json 510
+2025-11-09 12:51:23.585 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:51:23.589 +05:30 [INF] Executing endpoint 'backend.Controllers.Database.DatabaseController.CreateProject (backend)'
+2025-11-09 12:51:23.762 +05:30 [INF] Route matched with {action = "CreateProject", controller = "Database"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend.Models.ProjectLifecycle]] CreateProject(backend.Models.ProjectLifecycle) on controller backend.Controllers.Database.DatabaseController (backend).
+2025-11-09 12:51:29.685 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - null null
+2025-11-09 12:51:29.685 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:51:29.686 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - 204 null null 0.6382ms
+2025-11-09 12:51:29.687 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - application/json 39
+2025-11-09 12:51:29.689 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:51:29.689 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-11-09 12:51:29.692 +05:30 [INF] Route matched with {action = "LogFrontendMessage", controller = "BRDAnalyzer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LogFrontendMessage(backend.Models.LogMessageDto) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-11-09 12:51:29.708 +05:30 [INF] Frontend Log: [INFO] AnalyseBRD started
+2025-11-09 12:51:29.714 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-09 12:51:29.746 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend) in 51.7706ms
+2025-11-09 12:51:29.746 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-11-09 12:51:29.747 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - 200 null application/json; charset=utf-8 60.1417ms
+2025-11-09 12:51:43.710 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-11-09 12:51:43.711 +05:30 [INF] Executed action backend.Controllers.Database.DatabaseController.CreateProject (backend) in 19948.4719ms
+2025-11-09 12:51:43.711 +05:30 [INF] Executed endpoint 'backend.Controllers.Database.DatabaseController.CreateProject (backend)'
+2025-11-09 12:51:43.809 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/Database/createproject - 400 null text/plain; charset=utf-8 20230.4396ms
+2025-11-09 12:56:17.774 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/Database/createproject - null null
+2025-11-09 12:56:17.775 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:56:17.776 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/Database/createproject - 204 null null 1.2486ms
+2025-11-09 12:56:17.778 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/Database/createproject - application/json 510
+2025-11-09 12:56:17.778 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:56:17.778 +05:30 [INF] Executing endpoint 'backend.Controllers.Database.DatabaseController.CreateProject (backend)'
+2025-11-09 12:56:17.778 +05:30 [INF] Route matched with {action = "CreateProject", controller = "Database"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend.Models.ProjectLifecycle]] CreateProject(backend.Models.ProjectLifecycle) on controller backend.Controllers.Database.DatabaseController (backend).
+2025-11-09 12:56:20.313 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - null null
+2025-11-09 12:56:20.322 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:56:20.323 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - 204 null null 9.5291ms
+2025-11-09 12:56:20.325 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - application/json 39
+2025-11-09 12:56:20.325 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:56:20.325 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-11-09 12:56:20.325 +05:30 [INF] Route matched with {action = "LogFrontendMessage", controller = "BRDAnalyzer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LogFrontendMessage(backend.Models.LogMessageDto) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-11-09 12:56:20.326 +05:30 [INF] Frontend Log: [INFO] AnalyseBRD started
+2025-11-09 12:56:20.326 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - null null
+2025-11-09 12:56:20.326 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-09 12:56:20.326 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:56:20.326 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - 204 null null 0.2026ms
+2025-11-09 12:56:20.327 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend) in 1.9441ms
+2025-11-09 12:56:20.327 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-11-09 12:56:20.327 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - 200 null application/json; charset=utf-8 2.4713ms
+2025-11-09 12:56:20.328 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/analyse - application/json 3228
+2025-11-09 12:56:20.329 +05:30 [INF] CORS policy execution successful.
+2025-11-09 12:56:20.329 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend)'
+2025-11-09 12:56:20.334 +05:30 [INF] Route matched with {action = "AnalyzeBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AnalyzeBRD(backend.Models.BRDRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-11-09 12:56:20.378 +05:30 [INF] AnalyzeBRD called with task: udo:
+2025-11-09 12:56:20.437 +05:30 [ERR] Exception in AnalyzeBRD
+System.ArgumentNullException: Value cannot be null. (Parameter 'clientSecret')
+   at Microsoft.Identity.Client.ConfidentialClientApplicationBuilder.WithClientSecret(String clientSecret)
+   at backend.Service.Functionality.GetApiKey() in D:\GenAI2025\backend\Service\Functionality.cs:line 105
+   at backend.Service.Functionality.GetApiCredentials() in D:\GenAI2025\backend\Service\Functionality.cs:line 126
+   at backend.Service.Functionality.AnalyzeBRD(String txtprompt, String strtask, Int32 opt) in D:\GenAI2025\backend\Service\Functionality.cs:line 151
+2025-11-09 12:56:20.451 +05:30 [INF] AnalyzeBRD successfully completed.
+2025-11-09 12:56:20.452 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-11-09 12:56:20.452 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend) in 117.8745ms
+2025-11-09 12:56:20.452 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend)'
+2025-11-09 12:56:20.452 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/analyse - 200 null text/plain; charset=utf-8 123.4579ms
+2025-11-09 12:56:34.815 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-11-09 12:56:34.815 +05:30 [INF] Executed action backend.Controllers.Database.DatabaseController.CreateProject (backend) in 17036.9254ms
+2025-11-09 12:56:34.815 +05:30 [INF] Executed endpoint 'backend.Controllers.Database.DatabaseController.CreateProject (backend)'
+2025-11-09 12:56:34.816 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/Database/createproject - 400 null text/plain; charset=utf-8 17038.0313ms
+2025-11-09 12:58:55.549 +05:30 [INF] Application is shutting down...

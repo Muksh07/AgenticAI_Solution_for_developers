@@ -1,0 +1,7 @@
+2025-12-10 10:21:03.323 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 10:21:03.436 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 10:21:03.492 +05:30 [INF] Now listening on: http://localhost:5192
+2025-12-10 10:21:03.494 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-10 10:21:03.495 +05:30 [INF] Hosting environment: Development
+2025-12-10 10:21:03.495 +05:30 [INF] Content root path: D:\GenAI2025\backend
+2025-12-10 10:48:35.054 +05:30 [INF] Application is shutting down...

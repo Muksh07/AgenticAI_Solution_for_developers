@@ -1,0 +1,184 @@
+2025-12-10 10:48:05.704 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 10:48:05.927 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 10:49:36.509 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 10:49:36.701 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 10:49:36.834 +05:30 [INF] Now listening on: http://localhost:5192
+2025-12-10 10:49:36.838 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-10 10:49:36.839 +05:30 [INF] Hosting environment: Development
+2025-12-10 10:49:36.839 +05:30 [INF] Content root path: D:\GenAI2025\backend
+2025-12-10 10:55:36.103 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - null null
+2025-12-10 10:55:36.350 +05:30 [INF] CORS policy execution successful.
+2025-12-10 10:55:36.408 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - 204 null null 318.8618ms
+2025-12-10 10:55:36.420 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - application/json 39
+2025-12-10 10:55:36.426 +05:30 [INF] CORS policy execution successful.
+2025-12-10 10:55:36.439 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-12-10 10:55:36.552 +05:30 [INF] Route matched with {action = "LogFrontendMessage", controller = "BRDAnalyzer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LogFrontendMessage(backend.Models.LogMessageDto) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-10 10:55:36.923 +05:30 [INF] Frontend Log: [INFO] AnalyseBRD started
+2025-12-10 10:55:36.936 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-10 10:55:37.000 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend) in 441.0585ms
+2025-12-10 10:55:37.000 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-12-10 10:55:37.001 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - 200 null application/json; charset=utf-8 581.4304ms
+2025-12-10 10:55:39.002 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - null null
+2025-12-10 10:55:39.005 +05:30 [INF] CORS policy execution successful.
+2025-12-10 10:55:39.005 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - 204 null null 3.1562ms
+2025-12-10 10:55:39.008 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/analyse - application/json 352
+2025-12-10 10:55:39.008 +05:30 [INF] CORS policy execution successful.
+2025-12-10 10:55:39.008 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend)'
+2025-12-10 10:55:39.027 +05:30 [INF] Route matched with {action = "AnalyzeBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AnalyzeBRD(backend.Models.BRDRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-10 10:56:59.229 +05:30 [INF] AnalyzeBRD called with task:  
+2025-12-10 10:59:16.556 +05:30 [INF] Splitting text into chunks.
+2025-12-10 10:59:24.164 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 187
+2025-12-10 11:01:01.197 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:08.092 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 265
+2025-12-10 11:01:08.092 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:16.791 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 366
+2025-12-10 11:01:16.792 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:26.110 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 385
+2025-12-10 11:01:26.110 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:31.567 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 228
+2025-12-10 11:01:31.567 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:37.626 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 165
+2025-12-10 11:01:37.626 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:45.994 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 381
+2025-12-10 11:01:45.994 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:01:55.035 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 403
+2025-12-10 11:01:55.035 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:00.196 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 257
+2025-12-10 11:02:00.196 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:05.360 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 265
+2025-12-10 11:02:05.360 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:10.915 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 209
+2025-12-10 11:02:10.915 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:15.968 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 170
+2025-12-10 11:02:15.968 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:21.034 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 208
+2025-12-10 11:02:21.035 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:24.912 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 155
+2025-12-10 11:02:24.912 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:28.854 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 101
+2025-12-10 11:02:28.854 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:36.524 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 2092
+2025-12-10 11:02:36.524 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:02:50.005 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 2562
+2025-12-10 11:02:50.006 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:03:00.596 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1766
+2025-12-10 11:03:00.597 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:03:09.535 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1249
+2025-12-10 11:03:09.535 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:03:17.331 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1550
+2025-12-10 11:03:17.332 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:03:24.227 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1142
+2025-12-10 11:07:06.316 +05:30 [INF] AnalyzeBRD successfully completed.
+2025-12-10 11:07:10.255 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-12-10 11:07:10.388 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend) in 691359.9677ms
+2025-12-10 11:07:10.396 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend)'
+2025-12-10 11:07:10.434 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/analyse - 200 null text/plain; charset=utf-8 691424.6362ms
+2025-12-10 11:07:10.496 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - null null
+2025-12-10 11:07:10.561 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:07:10.562 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - 204 null null 65.9787ms
+2025-12-10 11:07:10.566 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/analyse - application/json 420
+2025-12-10 11:07:10.566 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:07:10.567 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend)'
+2025-12-10 11:07:10.572 +05:30 [INF] Route matched with {action = "AnalyzeBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AnalyzeBRD(backend.Models.BRDRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-10 11:10:02.309 +05:30 [INF] AnalyzeBRD called with task:  
+2025-12-10 11:10:02.351 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:06.170 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 193
+2025-12-10 11:10:06.170 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:10.610 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 193
+2025-12-10 11:10:10.639 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:14.534 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 193
+2025-12-10 11:10:14.534 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:19.557 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 193
+2025-12-10 11:10:19.557 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:24.100 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 200
+2025-12-10 11:10:24.100 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:27.887 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 173
+2025-12-10 11:10:27.887 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:31.893 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 203
+2025-12-10 11:10:31.893 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:35.768 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 181
+2025-12-10 11:10:35.768 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:40.682 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 217
+2025-12-10 11:10:40.683 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:44.731 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 199
+2025-12-10 11:10:44.731 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:48.581 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 197
+2025-12-10 11:10:48.581 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:52.304 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 193
+2025-12-10 11:10:52.304 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:10:56.291 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 212
+2025-12-10 11:10:56.292 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:00.239 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 207
+2025-12-10 11:11:00.239 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:04.227 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 192
+2025-12-10 11:11:04.227 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:10.678 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 922
+2025-12-10 11:11:10.678 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:19.962 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1115
+2025-12-10 11:11:19.962 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:31.166 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1219
+2025-12-10 11:11:31.167 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:39.610 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1163
+2025-12-10 11:11:39.610 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:46.459 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1266
+2025-12-10 11:11:46.459 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:11:55.316 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1063
+2025-12-10 11:11:55.317 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:07.062 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1198
+2025-12-10 11:12:07.062 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:15.684 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1186
+2025-12-10 11:12:15.684 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:23.873 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1430
+2025-12-10 11:12:23.873 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:32.539 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1025
+2025-12-10 11:12:32.539 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:40.646 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1051
+2025-12-10 11:12:40.646 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:47.970 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1041
+2025-12-10 11:12:47.970 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:12:54.290 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1088
+2025-12-10 11:12:54.290 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:13:01.688 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1108
+2025-12-10 11:13:01.688 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:13:15.145 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1218
+2025-12-10 11:13:15.145 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:13:23.573 +05:30 [INF] AnalyzeBRD completed. TotalTokens: 1142
+2025-12-10 11:13:23.574 +05:30 [INF] Splitting text into chunks.
+2025-12-10 11:13:27.647 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - null null
+2025-12-10 11:13:27.650 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - null null
+2025-12-10 11:13:27.650 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - null null
+2025-12-10 11:13:27.666 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:13:27.666 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:13:27.667 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:13:27.669 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - 204 null null 24.6814ms
+2025-12-10 11:13:27.669 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/log - 204 null null 24.6813ms
+2025-12-10 11:13:27.669 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/analyse - 204 null null 24.7488ms
+2025-12-10 11:13:27.688 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - application/json 1536
+2025-12-10 11:13:27.689 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:13:27.690 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/analyse - application/json 17147
+2025-12-10 11:13:27.690 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:13:27.691 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-12-10 11:13:27.691 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.AnalyzeBRD (backend)'
+2025-12-10 11:13:27.710 +05:30 [INF] Route matched with {action = "LogFrontendMessage", controller = "BRDAnalyzer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LogFrontendMessage(backend.Models.LogMessageDto) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-10 11:13:27.710 +05:30 [INF] Route matched with {action = "AnalyzeBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AnalyzeBRD(backend.Models.BRDRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-10 11:13:27.728 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - application/json 37
+2025-12-10 11:13:27.728 +05:30 [INF] CORS policy execution successful.
+2025-12-10 11:13:27.728 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-12-10 11:13:27.730 +05:30 [INF] Route matched with {action = "LogFrontendMessage", controller = "BRDAnalyzer"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult LogFrontendMessage(backend.Models.LogMessageDto) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-10 11:13:27.800 +05:30 [INF] Frontend Log: [INFO] abortbrd clicked
+2025-12-10 11:13:27.800 +05:30 [INF] Frontend Log: [ERROR] {"stack":"Error\n    at _super (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:247:22)\n    at new EmptyErrorImpl (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:2375:5)\n    at Object.complete (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:2420:18)\n    at ConsumerObserver2.complete (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:604:25)\n    at Subscriber2._complete (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:563:24)\n    at Subscriber2.complete (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:541:12)\n    at http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:4931:25\n    at OperatorSubscriber2._this._next (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:822:9)\n    at Subscriber2.next (http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:525:12)\n    at http://localhost:4200/@fs/D:/GenAI2025/frontend/.angular/cache/17.3.8/vite/deps/chunk-4J25ECOH.js?v=40da1a28:1063:22","name":"EmptyError","message":"no elements in sequence"}
+2025-12-10 11:13:27.801 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-10 11:13:27.801 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-10 11:13:27.806 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend) in 76.5173ms
+2025-12-10 11:13:27.806 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend) in 95.831ms
+2025-12-10 11:13:27.806 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-12-10 11:13:27.806 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.LogFrontendMessage (backend)'
+2025-12-10 11:13:27.807 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - 200 null application/json; charset=utf-8 118.693ms
+2025-12-10 11:13:27.807 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/log - 200 null application/json; charset=utf-8 78.6091ms
+2025-12-10 14:42:40.397 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 14:42:40.492 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-10 14:42:40.541 +05:30 [INF] Now listening on: http://localhost:5192
+2025-12-10 14:42:40.543 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-10 14:42:40.543 +05:30 [INF] Hosting environment: Development
+2025-12-10 14:42:40.543 +05:30 [INF] Content root path: D:\GenAI2025\backend
+2025-12-10 17:06:54.736 +05:30 [INF] Application is shutting down...

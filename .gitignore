@@ -1,0 +1,28 @@
+# General
+.DS_Store
+.VSCode/
+.idea/
+
+# Node environment
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Angular
+dist/
+tmp/
+/out-tsc
+bazel-out
+/integration/bazel/bazel-out
+
+# .NET / C#
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.launchsettings.json
+
+# Environment variables
+.env

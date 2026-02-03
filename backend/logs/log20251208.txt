@@ -1,0 +1,52 @@
+2025-12-08 23:39:11.394 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-08 23:39:11.821 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-08 23:39:12.015 +05:30 [INF] Now listening on: http://localhost:5192
+2025-12-08 23:39:12.018 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 23:39:12.019 +05:30 [INF] Hosting environment: Development
+2025-12-08 23:39:12.019 +05:30 [INF] Content root path: D:\GenAI2025\backend
+2025-12-08 23:44:12.875 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/solidify - null null
+2025-12-08 23:44:13.027 +05:30 [INF] CORS policy execution successful.
+2025-12-08 23:44:13.048 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/solidify - 204 null null 186.7601ms
+2025-12-08 23:44:13.051 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/solidify - application/json 116
+2025-12-08 23:44:13.055 +05:30 [INF] CORS policy execution successful.
+2025-12-08 23:44:13.062 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend)'
+2025-12-08 23:44:13.187 +05:30 [INF] Route matched with {action = "SolidifyBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend.Models.SolidificationResponseModel]] SolidifyBRD(backend.Models.SolidificationRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-08 23:44:13.571 +05:30 [INF] SolidifyBRD called.
+2025-12-08 23:44:13.590 +05:30 [INF] SolidifyBRD completed successfully.
+2025-12-08 23:44:13.600 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-12-08 23:44:13.604 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend) in 413.4911ms
+2025-12-08 23:44:13.604 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend)'
+2025-12-08 23:44:13.606 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/solidify - 200 0 text/plain; charset=utf-8 555.4978ms
+2025-12-08 23:47:44.477 +05:30 [INF] Application is shutting down...
+2025-12-08 23:49:48.320 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-08 23:49:48.457 +05:30 [WRN] The WebRootPath was not found: D:\GenAI2025\backend\wwwroot. Static files may be unavailable.
+2025-12-08 23:49:48.560 +05:30 [INF] Now listening on: http://localhost:5192
+2025-12-08 23:49:48.563 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-08 23:49:48.564 +05:30 [INF] Hosting environment: Development
+2025-12-08 23:49:48.564 +05:30 [INF] Content root path: D:\GenAI2025\backend
+2025-12-08 23:50:50.400 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/solidify - null null
+2025-12-08 23:50:50.466 +05:30 [INF] CORS policy execution successful.
+2025-12-08 23:50:50.487 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/solidify - 204 null null 88.5993ms
+2025-12-08 23:50:50.500 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/solidify - application/json 116
+2025-12-08 23:50:50.503 +05:30 [INF] CORS policy execution successful.
+2025-12-08 23:50:50.509 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend)'
+2025-12-08 23:50:50.552 +05:30 [INF] Route matched with {action = "SolidifyBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend.Models.SolidificationResponseModel]] SolidifyBRD(backend.Models.SolidificationRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-08 23:53:03.422 +05:30 [INF] SolidifyBRD called.
+2025-12-08 23:55:07.791 +05:30 [INF] SolidifyBRD completed successfully.
+2025-12-08 23:55:08.248 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-12-08 23:55:08.263 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend) in 257706.9339ms
+2025-12-08 23:55:08.263 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend)'
+2025-12-08 23:55:08.286 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/solidify - 200 0 text/plain; charset=utf-8 257786.4323ms
+2025-12-08 23:57:36.640 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/solidify - null null
+2025-12-08 23:57:37.013 +05:30 [INF] CORS policy execution successful.
+2025-12-08 23:57:37.014 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5192/api/BRDAnalyzer/solidify - 204 null null 374.1166ms
+2025-12-08 23:57:37.018 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/solidify - application/json 116
+2025-12-08 23:57:37.021 +05:30 [INF] CORS policy execution successful.
+2025-12-08 23:57:37.022 +05:30 [INF] Executing endpoint 'backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend)'
+2025-12-08 23:57:37.027 +05:30 [INF] Route matched with {action = "SolidifyBRD", controller = "BRDAnalyzer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend.Models.SolidificationResponseModel]] SolidifyBRD(backend.Models.SolidificationRequestModel) on controller backend.Controllers.BRD.BRDAnalyzerController (backend).
+2025-12-08 23:57:42.313 +05:30 [INF] SolidifyBRD called.
+2025-12-08 23:57:42.313 +05:30 [INF] SolidifyBRD completed successfully.
+2025-12-08 23:57:42.318 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-12-08 23:57:42.319 +05:30 [INF] Executed action backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend) in 5291.8193ms
+2025-12-08 23:57:42.319 +05:30 [INF] Executed endpoint 'backend.Controllers.BRD.BRDAnalyzerController.SolidifyBRD (backend)'
+2025-12-08 23:57:42.319 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5192/api/BRDAnalyzer/solidify - 200 0 text/plain; charset=utf-8 5300.9904ms

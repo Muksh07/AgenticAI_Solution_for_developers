@@ -1,0 +1,261 @@
+<!-- feedback-form/feedback-form.component.html -->
+<div class="feedback-overlay" *ngIf="isVisible" (click)="closeModal()">
+  <div class="feedback-modal" (click)="$event.stopPropagation()">
+    
+    <!-- Header -->
+    <div class="modal-header">
+      <div class="header-content">
+        <h2>📊 Project Feedback</h2>
+        <div class="project-info">
+          <span class="project-name">{{ projectName }}</span>
+          <!-- <span class="project-id">ID: {{ projectId }}</span> -->
+        </div>
+      </div>
+      <button class="close-btn" (click)="closeModal()" type="button">
+        <span>&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      
+      <!-- Existing Feedbacks Table
+      <div class="existing-feedbacks" *ngIf="existingFeedbacks.length > 0">
+        <h3>📈 Previous Feedback History</h3>
+        <div class="feedback-table-container">
+          <table class="feedback-table">
+            <thead>
+              <tr>
+                <th>Feedback ID</th>
+                <th>Code Coverage</th>
+                <th>Code Quality</th>
+                <th>Artifact Quality</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let feedback of existingFeedbacks">
+                <td class="feedback-id">{{ feedback.feedbackID }}</td>
+                <td class="coverage-score">
+                  <span class="score-badge" 
+                        [style.background-color]="getScoreColor(feedback.codeCoverageScore || 0)">
+                    {{ feedback.codeCoverageScore || 'N/A' }}%
+                  </span>
+                </td>
+                <td class="quality-score">
+                  <span class="score-badge" 
+                        [style.background-color]="getScoreColor((feedback.codeQualityScore || 0) * 20)">
+                    {{ feedback.codeQualityScore || 'N/A' }}/5
+                  </span>
+                </td>
+                <td class="artifact-quality">
+                  <span class="quality-badge" 
+                        [style.background-color]="getQualityColor(feedback.artifactQuality || '')">
+                    {{ feedback.artifactQuality || 'N/A' }}
+                  </span>
+                </td>
+                <td class="feedback-date">
+                  {{ feedback.feedbackDate | date:'short' }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+
+      <!-- Feedback Form -->
+      <div class="feedback-form-section">
+        <h3>Submit Feedback</h3>
+        
+        <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="feedback-form">
+          
+         <div class="form-group">
+            <label for="codeCoverageScore">
+              <span class="label-icon">📊</span>
+              Code Coverage Score (%) *
+            </label>
+            <select
+              id="codeCoverageScore"
+              formControlName="codeCoverageScore"
+              class="form-select"
+            >
+              <option value="">Select coverage percentage...</option>
+              <option *ngFor="let coverage of coverageOptions" [value]="coverage">
+                {{ coverage }}%
+              </option>
+            </select>
+            <div class="input-hint">Percentage of code covered by tests</div>
+          </div>
+
+          <!-- Code Quality Score -->
+          <div class="form-group">
+            <label for="codeQualityScore">
+              <span class="label-icon">⭐</span>
+              Code Quality Score (1-5) *
+            </label>
+            <select
+              id="codeQualityScore"
+              formControlName="codeQualityScore"
+              class="form-select"
+            >
+              <option value="">Select quality score...</option>
+              <option *ngFor="let score of qualityScoreOptions" [value]="score">
+                {{ score }}/5
+              </option>
+            </select>
+            <div class="input-hint">Overall code quality rating out of 5</div>
+          </div>
+
+          <!-- Artifact Quality -->
+          <div class="form-group">
+            <label for="HLD">
+              <span class="label-icon">🎯</span>
+              HLD *
+            </label>
+            <select
+              id="HLD"
+              formControlName="HLD"
+              class="form-select"
+              required
+            >
+              <option value="">Select quality level...</option>
+              <option *ngFor="let option of qualityOptions" [value]="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+            <!-- <div class="validation-error" 
+                 *ngIf="feedbackForm.get('HLD')?.invalid && feedbackForm.get('HLD')?.touched">
+              Please select an HLD quality level
+            </div> -->
+          </div>
+           <div class="form-group">
+            <label for="LLD">
+              <span class="label-icon">🎯</span>
+              LLD *
+            </label>
+            <select
+              id="LLD"
+              formControlName="LLD"
+              class="form-select"
+              required
+            >
+              <option value="">Select quality level...</option>
+              <option *ngFor="let option of qualityOptions" [value]="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+            <!-- <div class="validation-error" 
+                 *ngIf="feedbackForm.get('LLD')?.invalid && feedbackForm.get('LLD')?.touched">
+              Please select an LLD quality level
+            </div> -->
+          </div>
+           <div class="form-group">
+            <label for="User_Manual">
+              <span class="label-icon">🎯</span>
+              User Manual *
+            </label>
+            <select
+              id="User_Manual"
+              formControlName="User_Manual"
+              class="form-select"
+              required
+            >
+              <option value="">Select quality level...</option>
+              <option *ngFor="let option of qualityOptions" [value]="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+            <!-- <div class="validation-error" 
+                 *ngIf="feedbackForm.get('User_Manual')?.invalid && feedbackForm.get('User_Manual')?.touched">
+              Please select an User Manual quality level
+            </div> -->
+          </div>
+           <div class="form-group">
+            <label for="Traceability">
+              <span class="label-icon">🎯</span>
+              Traceability matrix *
+            </label>
+            <select
+              id="Traceability"
+              formControlName="Traceability"
+              class="form-select"
+              required
+            >
+              <option value="">Select quality level...</option>
+              <option *ngFor="let option of qualityOptions" [value]="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+            <!-- <div class="validation-error" 
+                 *ngIf="feedbackForm.get('Traceability')?.invalid && feedbackForm.get('Traceability')?.touched">
+              Please select an Traceability matrix level
+            </div> -->
+          </div>
+
+          <!-- Reviewer Comments -->
+          <div class="form-group">
+            <label for="reviewerComments">
+              <span class="label-icon">💬</span>
+              Detailed Comments *
+            </label>
+            <textarea
+              id="reviewerComments"
+              formControlName="reviewerComments"
+              rows="5"
+              placeholder="Provide detailed feedback about code quality, architecture, documentation, testing, areas for improvement, recommendations, etc."
+              class="form-textarea"
+              required
+            ></textarea>
+            <div class="char-count">
+              {{ feedbackForm.get('reviewerComments')?.value?.length || 0 }} characters
+            </div>
+            <div class="validation-error" 
+                 *ngIf="feedbackForm.get('reviewerComments')?.invalid && feedbackForm.get('reviewerComments')?.touched">
+              <span *ngIf="feedbackForm.get('reviewerComments')?.errors?.['required']">
+                Comments are required
+              </span>
+              <span *ngIf="feedbackForm.get('reviewerComments')?.errors?.['minlength']">
+                Please provide at least 10 characters
+              </span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" (click)="closeModal()">
+              ❌ Cancel
+            </button>
+            <button type="button" class="btn-reset" (click)="resetForm()">
+              🔄 Reset
+            </button>
+            <button 
+              type="submit" 
+              class="btn-submit" 
+              [disabled]="feedbackForm.invalid || isSubmitting"
+            >
+              <span *ngIf="!isSubmitting">✅ Submit Feedback</span>
+              <span *ngIf="isSubmitting">⏳ Submitting...</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Add this success overlay at the end of feedback-form.component.html, just before the closing </div> -->
+
+<!-- Success/Error Overlay -->
+
+<!-- Keep all your existing HTML above this -->
+
+</div>
+
+<div class="success-overlay" *ngIf="showSuccessOverlay">
+  <div class="success-message">
+    <div class="success-icon">
+      <span *ngIf="!successMessage.includes('❌')">✅</span>
+      <span *ngIf="successMessage.includes('❌')">❌</span>
+    </div>
+    <div class="success-text">{{ successMessage }}</div>
+  </div>
+</div>
+
