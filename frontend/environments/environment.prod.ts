@@ -1,8 +1,8 @@
 export const environment = {
-    production: true,
-     BaseUrl:'',
-    MANDATORY_MASK : '1 1 1 1 1 1 1 0 0 1 0 0 0 1',
-    SECTIONS_TEMPLATE :`
+  production: true,
+  BaseUrl: '/api',
+  MANDATORY_MASK: '1 1 1 1 1 1 1 0 0 1 0 0 0 1',
+  SECTIONS_TEMPLATE: `
     Project/ApplicationName
   Business Objectives
   Business Requirements
@@ -19,7 +19,7 @@ export const environment = {
   Module&SubModulehierarchy
   
 `,
-Insight_common_terms :`
+  Insight_common_terms: `
 
   Project/ApplicationName
   Solution Overview
@@ -41,23 +41,23 @@ Insight_common_terms :`
 `,
 
 
-technicalCommonTerms: [
-  'Solution Overview',
-  'Solution Structure',
-  'Database Object'
+  technicalCommonTerms: [
+    'Solution Overview',
+    'Solution Structure',
+    'Database Object'
 
-],
-folderName: [
-  'DataScripting',
-  'UnitTest',
-  'FunctionalTest',
-  'IntegrationTest',
-  'Documentation',
-  'Code Review Summary'
-],
- 
-  };
- 
+  ],
+  folderName: [
+    'DataScripting',
+    'UnitTest',
+    'FunctionalTest',
+    'IntegrationTest',
+    'Documentation',
+    'Code Review Summary'
+  ],
+
+};
+
 
 
 
