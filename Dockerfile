@@ -20,7 +20,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=backend-build /app/publish .
 # Copy Angular build output to wwwroot to be served by .NET
-COPY --from=frontend-build /app/frontend/dist/cognitive_ai ./wwwroot
+COPY --from=frontend-build /app/frontend/dist/cognitive_ai/browser ./wwwroot
 
 # Expose port (Render sets PORT env, but 8080/80 is standard)
 ENV ASPNETCORE_URLS=http://+:8080
